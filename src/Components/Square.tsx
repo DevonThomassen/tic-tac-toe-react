@@ -6,8 +6,8 @@ import React from 'react';
 */
 
 interface Props {
-  readonly value: string | null
-  onClick: () => void
+  readonly value: string | null;
+  onClick: () => void;
 }
 
 const Square = (props: Props) => {
