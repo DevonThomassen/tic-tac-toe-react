@@ -6,7 +6,7 @@ interface State {
   readonly squareAmount: number;
   xIsNext: boolean;
   stepNumber: number;
-  readonly history: Array<{ squares: Array<null | string> }>;
+  history: Array<{ squares: Array<null | string> }>;
 }
 
 class Game extends Component<{}, State> {
@@ -41,7 +41,6 @@ class Game extends Component<{}, State> {
     })
   }
 
-  // TODO: Re-render Square component
   private jumpTo(step: number) {
     this.setState({
       stepNumber: step,
@@ -51,7 +50,7 @@ class Game extends Component<{}, State> {
 
   render() {
     const history = this.state.history;
-    const current = history[history.length - 1];
+    const current = history[this.state.stepNumber];
     const winner = CalculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
